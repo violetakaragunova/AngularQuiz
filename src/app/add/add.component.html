@@ -1,0 +1,13 @@
+<div class="card border-primary mb-3" style="max-width: 18rem;">
+    <form #form="ngForm">
+    <div class="card-body text-success">
+    <p class="text-primary">Album ID<br><input [(ngModel)]='albumID' type="text" name='albumId' required></p>
+    <p class="text-primary">Title<br><input [(ngModel)]='title' type="text" name="title" required></p>
+    <p class="text-primary">URL<br><input [(ngModel)]='url' type="text" name="url" required></p>
+    <p class="text-primary">Thumbnail URL<br><input [(ngModel)]='thumbnailUrl' type="text" name="thumbnailUrl" required></p>
+    <button [disabled]="!form.valid" type="submit" class='btn btn-info mr-2' (click)="add()">Add</button>
+    <button (click)="goBack()" class='btn btn-info mr-2'>Back</button>
+    </div>
+    </form>
+</div>
+    

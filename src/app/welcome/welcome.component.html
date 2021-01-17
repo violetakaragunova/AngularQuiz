@@ -1,0 +1,25 @@
+
+  <div class="content" role="main">
+    <div>
+      <button style="margin-left:auto;margin-right:auto;display:block;margin-top:0%;margin-bottom:0%" (click)="goToAdd()" class='btn btn-info'>Add</button><br><br>
+    </div>
+    <div *ngFor="let image of data | paginate: {id: 'listing_pagination', itemsPerPage: 10, currentPage: page, totalItems: totalRecords}">
+      <br>
+      <div class="card border-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header bg-transparent border-primary text-primary">{{image.title}}</div>
+        <div class="card-body text-success">
+          <a style="cursor: pointer" (click)="!!goToDetails(image.id)"><img src="{{image.thumbnailUrl}}" ></a><br>
+        </div>
+        <div class="card-footer bg-transparent border-primary">
+        <button class="btn btn-outline-primary" (click)="deleteData(image.id)">Delete</button>
+        &nbsp;
+        <button (click)="goToEdit(image.id)" class="btn btn-outline-primary">Edit</button>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <pagination-controls  class="pagination" id='listing_pagination' maxSize="5" directionLinks="true" (pageChange)="onChangePage($event)"></pagination-controls>
+    </div>
+    </div>
+    
+    
